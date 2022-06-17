@@ -1,0 +1,80 @@
+package com.magento.pdptestScripts;
+
+import java.util.Map;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import com.aventstack.extentreports.Status;
+import com.magento.pages.BasePage;
+import com.magento.pages.OrderConfirmationPage;
+import com.magento.pages.CustomerAccountPage;
+import com.magento.pages.OrderHistoryPage;
+import com.magento.pages.PDPProductOptionsPage;
+import com.magento.pages.PDPSetsAndShippingPage;
+import com.magento.pages.ReviewAndPaymentsPage;
+import com.magento.pages.ShoppingCartPage;
+import com.magento.reusableComponents.ExcelUtility;
+import com.magento.reusableComponents.PropertiesUtility;
+import com.magento.testBase.ExtentFactory;
+import com.magento.testBase.TestBase;
+
+public class ValidateEstimateShippingfor1set extends TestBase{
+	ExcelUtility excelUtility = new ExcelUtility();
+	BasePage bp = new BasePage();
+	PDPProductOptionsPage pdp=new PDPProductOptionsPage();
+	PDPSetsAndShippingPage set=new PDPSetsAndShippingPage();
+	CustomerAccountPage account=new CustomerAccountPage();
+	ShoppingCartPage cart=new ShoppingCartPage();
+	ReviewAndPaymentsPage review=new ReviewAndPaymentsPage();
+	OrderConfirmationPage checkOutSuccess=new OrderConfirmationPage();
+	OrderHistoryPage order=new OrderHistoryPage();
+	
+	@Test
+	public void verifythemethodsdisplayedintheestimate() throws Throwable{
+		Map<String,String> pdpOptionsAsMap=excelUtility.readExcelCellValueGivenTheKey(PropertiesUtility.getPropertyValueByKey("PlaceOrder_excelPath"), PropertiesUtility.getPropertyValueByKey("sheetForPDPPage"));
+		Map<String,String> run=excelUtility.readExcelCellValueGivenTheKey(PropertiesUtility.getPropertyValueByKey("PlaceOrder_excelPath"), PropertiesUtility.getPropertyValueByKey("sheetForRun"));
+
+		ExtentFactory.getInstance().getExtent().log(Status.INFO, "Product : "+pdpOptionsAsMap.get("Business Cards Product"));
+		if(run.get("Env").equalsIgnoreCase("Dev"))
+			navigateTo_custom(pdpOptionsAsMap.get("Standard Business Cards ProductURL").replace("envi", run.get("DevKeyword")));
+		else if(run.get("Env").equalsIgnoreCase("Stage"))
+			navigateTo_custom(pdpOptionsAsMap.get("Standard Business Cards ProductURL").replace("envi", run.get("StagingKeyword")));
+		else if(run.get("Env").equalsIgnoreCase("Printing"))
+			navigateTo_custom(pdpOptionsAsMap.get("Standard Business Cards ProductURL").replace("envi", run.get("BetaKeyword")));
+		pdp.clickStartOverLink("Start Over");
+		pdp.selectSize(pdpOptionsAsMap.get("SIZE 2 x 3.5"));
+		pdp.clickShapeBox(pdpOptionsAsMap.get("SHAPE Rectangle"));
+		pdp.selectStock(pdpOptionsAsMap.get("STOCK 14PT C2S"));
+		pdp.selectColorspec(pdpOptionsAsMap.get("COLORSPEC 4/1"));
+		pdp.selectCoating(pdpOptionsAsMap.get("COATING No Coating"));
+		pdp.clickRunSize(pdpOptionsAsMap.get("RUNSIZE 500"));
+		pdp.selectTurnAroundTime(pdpOptionsAsMap.get("TURNAROUND TIME 2-4 Business Days"));
+		pdp.enterZip_PostalCode("91204");
+		pdp.validateMethodsInEstimateShipping();
+	}
+	
+	@Test
+	public void verifyShippingChargesinEstimateandSetsandshippingpage() throws Throwable{
+		Map<String,String> pdpOptionsAsMap=excelUtility.readExcelCellValueGivenTheKey(PropertiesUtility.getPropertyValueByKey("PlaceOrder_excelPath"), PropertiesUtility.getPropertyValueByKey("sheetForPDPPage"));
+		Map<String,String> run=excelUtility.readExcelCellValueGivenTheKey(PropertiesUtility.getPropertyValueByKey("PlaceOrder_excelPath"), PropertiesUtility.getPropertyValueByKey("sheetForRun"));
+
+		ExtentFactory.getInstance().getExtent().log(Status.INFO, "Product : "+pdpOptionsAsMap.get("Business Cards Product"));
+		if(run.get("Env").equalsIgnoreCase("Dev"))
+			navigateTo_custom(pdpOptionsAsMap.get("Standard Business Cards ProductURL").replace("envi", run.get("DevKeyword")));
+		else if(run.get("Env").equalsIgnoreCase("Stage"))
+			navigateTo_custom(pdpOptionsAsMap.get("Standard Business Cards ProductURL").replace("envi", run.get("StagingKeyword")));
+		else if(run.get("Env").equalsIgnoreCase("Printing"))
+			navigateTo_custom(pdpOptionsAsMap.get("Standard Business Cards ProductURL").replace("envi", run.get("BetaKeyword")));
+		pdp.clickStartOverLink("Start Over");
+		pdp.selectSize(pdpOptionsAsMap.get("SIZE 2 x 3.5"));
+		pdp.clickShapeBox(pdpOptionsAsMap.get("SHAPE Rectangle"));
+		pdp.selectStock(pdpOptionsAsMap.get("STOCK 14PT C2S"));
+		pdp.selectColorspec(pdpOptionsAsMap.get("COLORSPEC 4/1"));
+		pdp.selectCoating(pdpOptionsAsMap.get("COATING No Coating"));
+		pdp.clickRunSize(pdpOptionsAsMap.get("RUNSIZE 500"));
+		pdp.selectTurnAroundTime(pdpOptionsAsMap.get("TURNAROUND TIME 2-4 Business Days"));
+		pdp.enterZip_PostalCode("91204");
+		pdp.validateMethodsInEstimateShipping();
+		pdp.clickProceedToShippingButton();
+		
+	}
+}

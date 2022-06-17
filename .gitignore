@@ -1,0 +1,9 @@
+/target/
+/test-output/
+/reports/
+/previousReports/
+src/test/resources/excel/UsersValidation/
+src/test/java/com/learn/java/
+src/test/java/com/mapi/adminTool/
+src/main/java/com/mapiAdminTool/pages/
+

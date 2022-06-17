@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- <suite name="Basic Suite" parallel="classes" thread-count="5"> -->
+<suite name="Basic Suite">
+	<listeners>
+		<listener
+			class-name="com.magento.reusableComponents.ListenersImplementation"></listener>
+		<listener
+			class-name="com.magento.reusableComponents.TestRetryAnalyzerListener"></listener>
+	</listeners>
+
+	<test name="Test">
+		<classes>
+		
+			<!--  <class
+				name="com.magento.testScriptsEDDM.EDDMProducts" >  
+			<methods>
+					<include
+						name="moveLocationOfJobSamplesCQA_281" />
+				</methods>
+			</class>  -->
+			    <class
+				name="com.magento.customerAccountTestScripts.ValidateAddressFunctionality" >
+				<methods>
+					<include name="validateAddressBookPage" />
+					<!-- <include name="addAddress" />
+					<include name="editAddress" />
+					<include name="deleteAddress" /> -->
+				</methods>
+			</class> 
+			 <!-- <class
+				name="com.magento.smokeTestscript.ValidateBrowseAndShopFunctionality" />
+			<class
+				name="com.magento.testScriptsForSearch.ValidateSearchFunctionallity">
+				<methods>
+					<include name="validateSearchResultPage" />
+				</methods>
+			</class>
+			<class
+				name="com.magento.setsAndShippingTestScripts.Project_ClientNameIsARequiredFieldCQA_267" />   
+			<class
+				name="com.magento.artworkTestScripts.ValidateApprovingArtworkUXFix_CQA_211_M2_3012">
+				<methods>
+					<include name="validateConfirmationPopup" />
+				</methods>
+			</class>  
+			<class
+				name="com.magento.artworkTestScripts.ValidateArtworkForBoxesProducts_CQA_70_M2_2236">
+				<methods>
+					<include name="akuafoilPrintAndTrimBoxes" />
+				</methods>
+			</class>
+			  <class
+				name="com.magento.artworkTestScripts.ValidatePDFProofsArtworkProducts">
+				<methods>
+					<include name="standardBusinessCardsWithPDFProofs" />
+				</methods>
+			</class> 
+
+			<class
+				name="com.magento.testScripts.ValidatePlaceOrderWithArtwork_CQA_130">
+				<methods>
+					<include
+						name="standardBusinessCardsPlaceOrderUsingCreditCardAlongWithArtwork" />
+					<include
+						name="directMailPostcardsPlaceOrderUsingCreditCardAlongWithArtwork" />
+					<include
+						name="eDDMFullServicePostcardsPlaceOrderUsingCreditCardAlongWithArtwork" />
+				</methods>
+			</class> 
+			 <class
+				name="com.magento.shoppingCartPageTestScripts.ValidateCouponFeatureCQA_249" />
+			 <class
+				name="com.magento.testScriptsForCart.ValidateDeleteCartFunctionality">
+				<methods>
+					<include
+						name="validateDeleteCartFeatureFromRemoveProductLink" />
+				</methods>
+			</class>
+			<class
+				name="com.magento.smokeTestscript.ValidateLogoutFunctionality" />    --> 
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

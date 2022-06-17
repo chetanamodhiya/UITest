@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- <suite name="Basic Suite" parallel="classes" thread-count="5"> -->
+<suite name="Basic Suite">
+	<listeners>
+		<listener class-name="com.magento.reusableComponents.ListenersImplementation"></listener>
+		<listener class-name="com.magento.reusableComponents.TestRetryAnalyzerListener"></listener>
+	</listeners>
+	
+	<test name="Test">
+	<classes>
+	   <!--  <class name="com.magento.artworkTestScripts.ValidateRotateTemplateDefaultBehavior_CQA_71_M2_2291">
+	  	<methods>
+	 		<include name="allInclusivePostcards"/>
+	 		<include name="offsetEnvelopes"/>
+	 		<include name="endurACEMenus"/>
+	 		<include name="naturalMenus"/>
+	 		<include name="regularHangTags"/>
+	 		<include name="premiumVinylBanners"/>
+	 		<include name="circleBusinessCards"/>
+	 		<include name="meshBanners"/>
+	 		<include name="round2CornerBusinessCards"/>
+	 		<include name="foldoverBusinessCards"/>
+	 		<include name="brownKraftMenus"/>   
+	 	</methods>
+	 </class>     
+	   <class name="com.magento.artworkTestScripts.ValidateArtworkForBoxesProducts_CQA_70_M2_2236">
+	 	<methods>
+	 		 <include name="akuafoilPrintAndTrimBoxes"/>
+	 		 <include name="akuafoilCubeBoxes"/>
+	 		<include name="akuafoilWineBoxes"/>
+	 		<include name="akuafoiPillowBoxes"/>
+	 		<include name="akuafoilRollEndTuckBoxes"/>
+	 		<include name="akuafoilSalesPresentationBoxes"/>
+	 		<include name="akuafoilBusinessCardBoxes"/>
+	 		<include name="akuafoilGolfBallBoxes"/>
+	 		<include name="cubeBoxes"/>
+	 		<include name="printAndTrimBoxes"/>
+	 		<include name="golfBallBoxes"/>
+	 		<include name="wineBoxes"/>
+	 		<include name="salesPresentationBoxes"/>
+	 		<include name="rollEndTuckBoxes"/>
+	 		<include name="pillowBoxes"/> 
+	 		<include name="businessCardBoxes"/>     
+	 	</methods>
+	 </class>       
+	    <class name="com.magento.artworkTestScripts.ValidateApprovingArtworkUXFix_CQA_211_M2_3012">
+	 <methods>
+	  	 <include name="validateConfirmationPopup"/>  
+	   	<include name="validateConfirmationPopupForAllSetsShipments"/> 
+	   	
+	   	 <include name="validatePrintProductFunctionalityImageFileIsUploadedLast"/>     
+	   	<include name="validateConfirmationPopupWithShipmentLockUnlock"/> 
+	     <include name="validateConfirmationPopupAfterPlacedOrder"/>   
+	     <include name="validatePrintProductFunctionalityCSVFileIsUploadedLast"/>     
+	 </methods>  
+	 </class>   
+	  <class name="com.magento.artworkTestScripts.ApprovingArtworkUXFixConfirmationmessageupdates_CQA_212_M2_3013">
+	 <methods>
+	   <include name="validateReviewArtworkonTemplateButton"/>
+	  <include name="validateReturntomedialibraryButton"/>  
+	  <include name="validateApproveallartworkforproductionButton"/>  
+	 </methods>   
+	 </class>    --> 
+	  <class name="com.magento.artworkTestScripts.ValidatePDFProofsArtworkProducts"/>    
+	</classes> 
+	</test> 
+	
+</suite> 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- <suite name="Basic Suite" parallel="classes" thread-count="5"> -->
+<suite name="Basic Suite">
+<suite-files>
+<suite-file path=".\src\test\resources\runner\accoutFunctionality.xml"></suite-file> 
+<suite-file path=".\src\test\resources\runner\validateCustomOptions.xml"></suite-file>  
+<suite-file path=".\src\test\resources\runner\setsAndShiping.xml"></suite-file> 
+<suite-file path=".\src\test\resources\runner\cartFunctionality.xml"></suite-file> 
+<suite-file path=".\src\test\resources\runner\eDDMFunctionality.xml"></suite-file> 
+<suite-file path=".\src\test\resources\runner\artworkRegression.xml"></suite-file>
+<suite-file path=".\src\test\resources\runner\placeOrderFlow.xml"></suite-file>  
+</suite-files>
+
+</suite> <!-- Suite -->
