@@ -209,7 +209,7 @@ public class CustomerAddressBookPage extends TestBase{
 	public void validateAddressBookPage() {
 		String url=getURL_custom();
 		if(url.contains("address")) {
-			Assert.assertTrue(false);
+			Assert.assertTrue(true);
 			ExtentFactory.getInstance().getExtent().log(Status.PASS, "Address Book Page is displayed: URL is "+url);
 		}
 		else {
