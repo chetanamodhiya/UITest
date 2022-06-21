@@ -28,32 +28,32 @@ public class BrowserFactory {
 	public static final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 	//create WebDriver object for given browser
 	public WebDriver createBrowserInstance(String browser) throws MalformedURLException{
-//		WebDriver driver = null;
-		HtmlUnitDriver driver = null;
+		WebDriver driver = null;
+//		HtmlUnitDriver driver = null;
 		if(browser.equalsIgnoreCase("Chrome")) {
 		//	DesiredCapabilities caps = new DesiredCapabilities();
 		//	caps.setCapability("resolution", "1920x1080");
-//			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().setup();
 			System.setProperty("webdriver.chrome.silentOutput", "true");
-//			ChromeOptions options = new ChromeOptions();
+			ChromeOptions options = new ChromeOptions();
 //			options.addArguments("--incognito");
 			Map<String, Object> prefs = new HashMap<String, Object>();
 			prefs.put("credentials_enable_service", false);
 			prefs.put("profile.password_manager_enabled", false);
-//			options.setExperimentalOption("prefs", prefs);
-//			options.addArguments("--disable-web-security");
-//			options.addArguments("--disable-site-isolation-trials");
+			options.setExperimentalOption("prefs", prefs);
+			options.addArguments("--disable-web-security");
+			options.addArguments("--disable-site-isolation-trials");
 		//	options.addArguments("--disable-notifications");
-//			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-//			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
 			
 //			options.setBinary("/usr/bin/google-chrome");    //chrome binary location
-//			options.addArguments("--headless");
+			options.addArguments("headless");
 //			options.addArguments("--no-sandbox");
 //			options.addArguments("--disable-dev-shm-usage");
-//
-//			driver = new ChromeDriver(options);
-			driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
+
+			driver = new ChromeDriver(options);
+//			driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
 //			//browserstack code
 //			DesiredCapabilities caps = new DesiredCapabilities();
 //		    caps.setCapability("os_version", "10");
