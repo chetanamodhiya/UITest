@@ -31,7 +31,7 @@ public class TestBase extends CommonUtility {
 		String url = 	PropertiesUtility.getPropertyValueByKey("appUrl");
 
 		DriverFactory.getInstance().setDriver(bf.createBrowserInstance(browser));
-		DriverFactory.getInstance().getDriver().manage().window().maximize();
+//		DriverFactory.getInstance().getDriver().manage().window().maximize();
 		DriverFactory.getInstance().getDriver().navigate().to(url);
 //		DriverFactory.getInstance().getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		waitFor(Integer.parseInt(PropertiesUtility.getPropertyValueByKey("waitForPageLoad")));
