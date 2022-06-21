@@ -28,8 +28,8 @@ public class BrowserFactory {
 	public static final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 	//create WebDriver object for given browser
 	public WebDriver createBrowserInstance(String browser) throws MalformedURLException{
-		WebDriver driver = null;
-//		HtmlUnitDriver driver = null;
+//		WebDriver driver = null;
+		HtmlUnitDriver driver = null;
 		if(browser.equalsIgnoreCase("Chrome")) {
 		//	DesiredCapabilities caps = new DesiredCapabilities();
 		//	caps.setCapability("resolution", "1920x1080");
@@ -47,13 +47,13 @@ public class BrowserFactory {
 			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
 			
-			options.setBinary("/usr/bin/google-chrome");    //chrome binary location
-			options.addArguments("--headless");
-			options.addArguments("--no-sandbox");
-			options.addArguments("--disable-dev-shm-usage");
-
-			driver = new ChromeDriver(options);
-//			driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
+//			options.setBinary("/usr/bin/google-chrome");    //chrome binary location
+//			options.addArguments("--headless");
+//			options.addArguments("--no-sandbox");
+//			options.addArguments("--disable-dev-shm-usage");
+//
+//			driver = new ChromeDriver(options);
+			driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
 //			//browserstack code
 //			DesiredCapabilities caps = new DesiredCapabilities();
 //		    caps.setCapability("os_version", "10");
