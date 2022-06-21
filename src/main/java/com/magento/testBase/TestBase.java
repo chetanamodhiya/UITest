@@ -34,7 +34,7 @@ public class TestBase extends CommonUtility {
 		DriverFactory.getInstance().getDriver().manage().window().maximize();
 		DriverFactory.getInstance().getDriver().navigate().to(url);
 		DriverFactory.getInstance().getDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-//		waitFor(Integer.parseInt(PropertiesUtility.getPropertyValueByKey("waitForPageLoad")));
+		waitFor(Integer.parseInt(PropertiesUtility.getPropertyValueByKey("waitForPageLoad")));
 		custom_findElement(By.xpath("(//span[text()='Sign In'])[1]/..")).click();
 		custom_findElement(By.id("login-dropdown-customer-email")).clear();
 		custom_findElement(By.id("login-dropdown-customer-email")).sendKeys(PropertiesUtility.getPropertyValueByKey("defaultUserName"));
