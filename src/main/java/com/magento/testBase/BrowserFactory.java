@@ -36,9 +36,9 @@ public class BrowserFactory {
 			Map<String, Object> prefs = new HashMap<String, Object>();
 			prefs.put("credentials_enable_service", false);
 			prefs.put("profile.password_manager_enabled", false);
-			options.addArguments("headless");
-//			options.addArguments("--no-sandbox");
-//			options.addArguments("--disable-dev-shm-usage");
+			options.addArguments("--headless");
+			options.addArguments("--no-sandbox");
+			options.addArguments("--disable-dev-shm-usage");
 			options.setExperimentalOption("prefs", prefs);
 			options.addArguments("--disable-web-security");
 			options.addArguments("--disable-site-isolation-trials");
