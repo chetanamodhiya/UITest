@@ -18,6 +18,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
+
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 public class BrowserFactory {
 	public static final String AUTOMATE_USERNAME = "wqaoffshore_zuKpmq";
@@ -44,8 +47,7 @@ public class BrowserFactory {
 			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
 //			driver = new ChromeDriver(options);
-			driver = new HtmlUnitDriver();
-			
+			driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
 //			//browserstack code
 //			DesiredCapabilities caps = new DesiredCapabilities();
 //		    caps.setCapability("os_version", "10");
@@ -62,7 +64,7 @@ public class BrowserFactory {
 			FirefoxOptions fOptions = new FirefoxOptions();
 			fOptions.addArguments("-private");
 			fOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-			driver = new FirefoxDriver(fOptions);
+//			driver = new FirefoxDriver(fOptions);
 		}else if (browser.equalsIgnoreCase("safari")) {
 			//browserstack code
 			DesiredCapabilities caps = new DesiredCapabilities();
@@ -73,7 +75,7 @@ public class BrowserFactory {
 			caps.setCapability("browserstack.local", "false");
 			caps.setCapability("resolution", "1920x1080");
 			caps.setCapability("browserstack.selenium_version", "3.141.59");
-			driver = new RemoteWebDriver(new URL(URL), caps);
+//			driver = new RemoteWebDriver(new URL(URL), caps);
 		}
 		return driver;
 	}
