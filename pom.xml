@@ -16,7 +16,7 @@
 		<apache.poi.ooxml.version>4.1.2</apache.poi.ooxml.version>
 		<apache.poi.ooxml.schemas.version>4.1.2</apache.poi.ooxml.schemas.version>
 		<extentreports.version>5.0.8</extentreports.version>
-		<surefire.plugin.version>2.22.2</surefire.plugin.version>
+		<surefire.plugin.version>2.22.1</surefire.plugin.version>
 		<testng.version>7.3.0</testng.version>
 		<slf4j.version>1.7.30</slf4j.version>
 		<encoding>UTF-8</encoding>
