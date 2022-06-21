@@ -46,7 +46,12 @@ public class BrowserFactory {
 		//	options.addArguments("--disable-notifications");
 			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-			options.addArguments("headless");
+			
+			options.setBinary("/usr/bin/google-chrome");    //chrome binary location
+			options.addArguments("--headless");
+			options.addArguments("--no-sandbox");
+			options.addArguments("--disable-dev-shm-usage");
+
 			driver = new ChromeDriver(options);
 //			driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
 //			//browserstack code
