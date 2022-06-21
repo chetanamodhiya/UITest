@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -24,8 +25,8 @@ public class BrowserFactory {
 	public static final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 	//create WebDriver object for given browser
 	public WebDriver createBrowserInstance(String browser) throws MalformedURLException{
-		WebDriver driver = null;
-//		HtmlUnitDriver driver = null;
+//		WebDriver driver = null;
+		HtmlUnitDriver driver = null;
 		if(browser.equalsIgnoreCase("Chrome")) {
 		//	DesiredCapabilities caps = new DesiredCapabilities();
 		//	caps.setCapability("resolution", "1920x1080");
@@ -42,8 +43,8 @@ public class BrowserFactory {
 		//	options.addArguments("--disable-notifications");
 			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-			options.addArguments("--headless");
-			driver = new ChromeDriver(options);
+//			driver = new ChromeDriver(options);
+			driver = new HtmlUnitDriver();
 			
 //			//browserstack code
 //			DesiredCapabilities caps = new DesiredCapabilities();
