@@ -43,8 +43,6 @@ public class BrowserFactory {
 			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
 			options.addArguments("--headless");
-			options.addArguments("--no-sandbox");
-			options.addArguments("--disable-dev-shm-usage");
 			driver = new ChromeDriver(options);
 			
 //			//browserstack code
