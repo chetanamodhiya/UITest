@@ -12,13 +12,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.htmlunit.*;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
-
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -33,19 +33,19 @@ public class BrowserFactory {
 		if(browser.equalsIgnoreCase("Chrome")) {
 		//	DesiredCapabilities caps = new DesiredCapabilities();
 		//	caps.setCapability("resolution", "1920x1080");
-			WebDriverManager.chromedriver().setup();
+//			WebDriverManager.chromedriver().setup();
 			System.setProperty("webdriver.chrome.silentOutput", "true");
-			ChromeOptions options = new ChromeOptions();
+//			ChromeOptions options = new ChromeOptions();
 //			options.addArguments("--incognito");
 			Map<String, Object> prefs = new HashMap<String, Object>();
 			prefs.put("credentials_enable_service", false);
 			prefs.put("profile.password_manager_enabled", false);
-			options.setExperimentalOption("prefs", prefs);
-			options.addArguments("--disable-web-security");
-			options.addArguments("--disable-site-isolation-trials");
+//			options.setExperimentalOption("prefs", prefs);
+//			options.addArguments("--disable-web-security");
+//			options.addArguments("--disable-site-isolation-trials");
 		//	options.addArguments("--disable-notifications");
-			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+//			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+//			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
 			
 //			options.setBinary("/usr/bin/google-chrome");    //chrome binary location
 //			options.addArguments("--headless");
