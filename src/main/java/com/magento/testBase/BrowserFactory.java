@@ -3,23 +3,15 @@
  */
 package com.magento.testBase;
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.htmlunit.*;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.safari.SafariOptions;
-import com.gargoylesoftware.htmlunit.BrowserVersion;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 public class BrowserFactory {
@@ -29,10 +21,7 @@ public class BrowserFactory {
 	//create WebDriver object for given browser
 	public WebDriver createBrowserInstance(String browser) throws MalformedURLException{
 		WebDriver driver = null;
-//		HtmlUnitDriver driver = null;
 		if(browser.equalsIgnoreCase("Chrome")) {
-		//	DesiredCapabilities caps = new DesiredCapabilities();
-		//	caps.setCapability("resolution", "1920x1080");
 			WebDriverManager.chromedriver().setup();
 			System.setProperty("webdriver.chrome.silentOutput", "true");
 			ChromeOptions options = new ChromeOptions();
@@ -46,14 +35,8 @@ public class BrowserFactory {
 		//	options.addArguments("--disable-notifications");
 			options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-			
-//			options.setBinary("/usr/bin/google-chrome");    //chrome binary location
 			options.addArguments("headless");
-//			options.addArguments("--no-sandbox");
-//			options.addArguments("--disable-dev-shm-usage");
-
 			driver = new ChromeDriver(options);
-//			driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
 //			//browserstack code
 //			DesiredCapabilities caps = new DesiredCapabilities();
 //		    caps.setCapability("os_version", "10");
