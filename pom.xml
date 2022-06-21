@@ -98,7 +98,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${surefire.plugin.version}</version>
 				<configuration>
-					<testFailureIgnore> true </testFailureIgnore>
+					<testFailureIgnore>false</testFailureIgnore>
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/runner/smokeTest.xml</suiteXmlFile>
 					</suiteXmlFiles>
